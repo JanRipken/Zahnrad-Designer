@@ -1,0 +1,107 @@
+﻿<Window x:Class="Zahnrad_Designer.Zahnrad_Auswahl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zahnrad_Designer"
+        mc:Ignorable="d"
+         Title="ZarCAD-Auswahl" Icon="Bilder/Zahnräder.Icon.Jpg" MinHeight="500" MaxHeight="500" Height="500" MinWidth="900" MaxWidth="900" Width="900" WindowStartupLocation="Manual" Top="250" Left="800">
+
+    <!--Hintergrund Farbe-->
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF5873A2" Offset="0.15"/>
+            <GradientStop Color="#FF0D285B" Offset="0.9"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+    <!--Hauptgitter-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!--Boarder für die einzelenen Bilder-->
+        <Border Grid.Column="1" Margin="20,0,20,0" Grid.Row="1"  BorderBrush="GhostWhite" BorderThickness="1" CornerRadius="20">
+
+            <Image Source="Bilder/Startseite Stirnrad.jpg" Margin="20" />
+
+        </Border>
+
+        <Border Grid.Column="2" Grid.Row="1" Margin="20,0,20,0" BorderBrush="GhostWhite" BorderThickness="1" CornerRadius="20">
+            <Image Source="Bilder/Startseite Kegelrad.png" Margin="20"/>
+        </Border>
+
+        <Border Grid.Column="3" Grid.Row="1" Margin="20,0,20,0" BorderBrush="GhostWhite" BorderThickness="1" CornerRadius="20">
+            <Image Source="Bilder/Schnecke auswahl.png" Margin="20"/>
+        </Border>
+
+
+        <!--Treeview für die auswahlmöglichkeiten-->
+        <TreeView Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="20" Width="220" >
+
+            <TreeView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFCFD7EC" Offset="1"/>
+                </LinearGradientBrush>
+            </TreeView.Background>
+
+            <TreeViewItem x:Name="trv_Stirnräder" IsExpanded="True" Header="Stirnräder" Foreground="GhostWhite" FontSize="15" >
+                <TreeViewItem x:Name ="trv_Geradverzahnung" Selected="trv_Geradverzahnung_Selected" Header="Geradverzahnung" Foreground="GhostWhite"/>
+                <TreeViewItem x:Name ="trv_Schrägverzahnung"   Header="Schrägverzahnung" Foreground="GhostWhite"/>
+                <TreeViewItem x:Name ="trv_Doppelschrägverzahnung"  Header="Doppelschrägverzahnung" Foreground="GhostWhite"/>
+                <TreeViewItem x:Name ="trv_Pfeilverzahnung"   Header="Pfeilverzahnung" Foreground="GhostWhite"/>
+            </TreeViewItem>
+
+        </TreeView>
+
+        <TreeView Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="20" Width="220">
+
+            <TreeView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFCFD7EC" Offset="1"/>
+                </LinearGradientBrush>
+            </TreeView.Background>
+
+            <TreeViewItem Header="Kegelräder" IsExpanded="True" Foreground="GhostWhite" FontSize="15">
+                <TreeViewItem x:Name ="trv_Kegelradgeradverzahnung"  Header="Geradverzahnung" Foreground="GhostWhite"/>
+                <TreeViewItem Header="Bogenverzahnung" Foreground="GhostWhite"/>
+                <TreeViewItem Header="Planrad" Foreground="GhostWhite"/>
+                <TreeViewItem Header="Kronenrad" Foreground="GhostWhite"/>
+                <TreeViewItem Header="Hypoidgetribe" Foreground="GhostWhite"/>
+            </TreeViewItem>
+        </TreeView>
+
+        <TreeView Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Margin="20" Width="220">
+
+            <TreeView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFCFD7EC" Offset="1"/>
+                </LinearGradientBrush>
+            </TreeView.Background>
+
+            <TreeViewItem  x:Name="trv_Schnecke" Header="Schnecke" IsExpanded="True" Foreground="GhostWhite" FontSize="15">
+                <TreeViewItem   x:Name="trv_Zylinderschnecken"  Header="Zylinderschnecken" Foreground="GhostWhite"/>
+                <TreeViewItem Header="Globolidschnecke" Foreground="GhostWhite"/>
+            </TreeViewItem>
+        </TreeView>
+        
+        <Grid Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="0.2,114.8,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>

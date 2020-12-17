@@ -5,8 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zahnrad_Designer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+     Title="ZarCAD" Icon="Bilder/Zahnräder.Icon.Jpg" MinHeight="500" MaxHeight="500" Height="500" MinWidth="900" MaxWidth="900" Width="900" 
+                 WindowStartupLocation="Manual" Top="250" Left="800"
+                    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif">
+
+    <!--Hintergrund Farbe-->
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF5873A2" Offset="0.15"/>
+            <GradientStop Color="#FF0D285B" Offset="0.9"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <!--Hauptgitter-->
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Padding="10" BorderThickness="1" BorderBrush="GhostWhite" Height="300">
+
+            <!-- Stackpanel um die bilder untereinander anzuordnen -->
+            <StackPanel Grid.Column="0" Height="414" Margin="1" >
+                <Image   Margin="3"  Stretch="Uniform" Grid.Column="0" gif:AnimationBehavior.SourceUri="Bilder/Zahnrad gif.gif"  />
+            </StackPanel>
+        </Border>
+
+        <!--Informationsgitter (was wird berechnet) + Catia Starten-->
+
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+            <Border BorderBrush="GhostWhite" BorderThickness="1">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock  Grid.Row="0" Foreground="White" FontSize="30" Grid.Column="1" Margin="30,15,40,5"  HorizontalAlignment="Left">Moin</TextBlock>
+                    <TextBlock Grid.Row="1" Foreground="White" FontSize="15" Margin="30 5 40 5" > Vielen Dank,</TextBlock>
+                    <TextBlock Grid.Row="2"></TextBlock>
+                    <TextBlock Grid.Row="3" Foreground="White" FontSize="17" Margin="30 0 10 0">dass Sie sich für ZarCAD entschieden haben</TextBlock>
+                    <TextBlock Grid.Row="4" Foreground="White" FontSize="17" Margin="30 0 10 0 ">ZarCAD ermöglicht es Ihnen verschiedene Zahnräder</TextBlock>
+                    <TextBlock Grid.Row="5" Foreground="White" FontSize="17" Margin="30 0 10 0 "> zu berechnen und sie als CAD-Zeichnung anzusehen.</TextBlock>
+                    <TextBlock Grid.Row="6"></TextBlock>
+                    <TextBlock Grid.Row="7" Foreground="White" FontSize="17" Margin="30 0 10 0 ">Unteranderem werden berechnet :</TextBlock>
+                    <TextBlock Grid.Row="8" Foreground="White" FontSize="17" Margin="30 0 10 0 ">Zahnhöhe, Teilung, Grundkreisdurchmesser,</TextBlock>
+                    <TextBlock Grid.Row="9" Foreground="White" FontSize="17" Margin="30 0 10 0 ">Fußkreisdurchmesser und der Preis</TextBlock>
+
+                    <Grid Grid.Row="10" Margin="15 70 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Starten, schlissen und catiaV5 starten -->
+                        <Button  x:Name="btn_Start" Grid.Column="0"  Height="25" Width="100" Click="btn_Start_Click" >Start</Button>
+                        <Button  x:Name="btn_Schlissen" Grid.Column="2" Height="25" Width="100" Click="btn_Schlissen_Click">Schlissen</Button>
+                        <Button  x:Name="btn__Catia" Grid.Column="1" Height="25" Width="100" Click="btn__Catia_Click" >Start mit CatiaV5</Button>
+
+                    </Grid>
+                </Grid>
+            </Border>
+        </StackPanel>
     </Grid>
 </Window>

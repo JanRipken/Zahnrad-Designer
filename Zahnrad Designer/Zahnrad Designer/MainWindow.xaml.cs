@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics; //Nötig für das ausführen des Catia Programm
 
 namespace Zahnrad_Designer
 {
@@ -23,6 +24,33 @@ namespace Zahnrad_Designer
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_Schlissen_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btn__Catia_Click(object sender, RoutedEventArgs e)
+        {
+            Zahnrad_Auswahl Auswahl = new Zahnrad_Auswahl();
+            Auswahl.Show();
+
+
+            string Programmname = "CNEXT.exe";
+            Process.Start(Programmname);
+
+            
+            this.Close();
+        }
+
+        private void btn_Start_Click(object sender, RoutedEventArgs e)
+        {
+            Zahnrad_Auswahl Auswahl = new Zahnrad_Auswahl();
+            Auswahl.Show();
+
+
+            this.Close();
         }
     }
 }
