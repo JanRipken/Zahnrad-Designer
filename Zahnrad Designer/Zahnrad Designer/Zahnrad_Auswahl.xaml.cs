@@ -26,6 +26,9 @@ namespace Zahnrad_Designer
 
         private void trv_Geradverzahnung_Selected(object sender, RoutedEventArgs e)
         {
+            //objekterzeugung
+            Stirnräder.Geradverzahnung_Aussen.Geradverzahnung_Aussen geradverzahnung_Aussen = new Stirnräder.Geradverzahnung_Aussen.Geradverzahnung_Aussen();
+            geradverzahnung_Aussen.Show();
 
         }
     }

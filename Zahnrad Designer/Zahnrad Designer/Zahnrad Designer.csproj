@@ -82,6 +82,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Stirnräder\Catia API.cs" />
+    <Compile Include="Stirnräder\Geradverzahnung Aussen\Geradverzahnung_Aussen.xaml.cs">
+      <DependentUpon>Geradverzahnung_Aussen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Stirnräder\Geradverzahnung Aussen\Geradverzahnung_Aussen_Berechnung.cs" />
     <Compile Include="Zahnrad_Auswahl.xaml.cs">
       <DependentUpon>Zahnrad_Auswahl.xaml</DependentUpon>
     </Compile>
@@ -97,6 +102,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Stirnräder\Geradverzahnung Aussen\Geradverzahnung_Aussen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Zahnrad_Auswahl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,7 +177,6 @@
     <Folder Include="Schnecken\Globoidschnecke\" />
     <Folder Include="Schnecken\Zylinderschnecke\" />
     <Folder Include="Stirnräder\Doppelschrägverzahnung\" />
-    <Folder Include="Stirnräder\Geradverzahnung Aussen\" />
     <Folder Include="Stirnräder\Geradverzahnung Innen\" />
     <Folder Include="Stirnräder\Pfeilverzahnung\" />
     <Folder Include="Stirnräder\Schraubenrad\" />
