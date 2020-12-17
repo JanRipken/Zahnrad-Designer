@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
 {
@@ -30,11 +32,11 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
             grd_Hauptgiter.Visibility = Visibility.Visible;
         }
 
-        Geradverzahnung_Aussen_Berechnung geradverzahnungBerechnung;
+        Geradverzahnung_Aussen_Berechnung geradverzahnungBerechnungAussen;
 
         public void btn_Berechnen_Click(object sender, RoutedEventArgs e)
         {
-            geradverzahnungBerechnung = new Geradverzahnung_Aussen_Berechnung();
+            geradverzahnungBerechnungAussen = new Geradverzahnung_Aussen_Berechnung();
 
 
 
@@ -42,7 +44,7 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
             double ModulEingabe;
             if (double.TryParse(txt_Modul.Text, out ModulEingabe))
             {
-                geradverzahnungBerechnung.Modul = ModulEingabe;
+                geradverzahnungBerechnungAussen.Modul = ModulEingabe;
 
             }
             else
@@ -54,7 +56,7 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
             double ZähnezahlEingabe;
             if (double.TryParse(txt_Zähnezahl.Text, out ZähnezahlEingabe))
             {
-                geradverzahnungBerechnung.Zähnezahl = ZähnezahlEingabe;
+                geradverzahnungBerechnungAussen.Zähnezahl = ZähnezahlEingabe;
             }
             else
             {
@@ -67,7 +69,7 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
             if (double.TryParse(txt_Teilkreisdurchmesser.Text, out TeilkreisdurchmesserEingabe))
             {
 
-                geradverzahnungBerechnung.Teilkreisdurchmesser = TeilkreisdurchmesserEingabe;
+                geradverzahnungBerechnungAussen.Teilkreisdurchmesser = TeilkreisdurchmesserEingabe;
             }
             else
             {
@@ -78,7 +80,7 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
             double BreiteEingabe;
             if (double.TryParse(txt_Breite.Text, out BreiteEingabe))
             {
-                geradverzahnungBerechnung.Breite = BreiteEingabe;
+                geradverzahnungBerechnungAussen.Breite = BreiteEingabe;
             }
             else
             {
@@ -89,7 +91,7 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
             double EingriffswinkelEingabe;
             if (double.TryParse(txt_Eingriffswinkel.Text, out EingriffswinkelEingabe))
             {
-                geradverzahnungBerechnung.Eingriffswinkel = EingriffswinkelEingabe;
+                geradverzahnungBerechnungAussen.Eingriffswinkel = EingriffswinkelEingabe;
             }
             else
             {
@@ -100,7 +102,7 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
             double KopfspielEingabe;
             if (double.TryParse(txt_Kopfspiel.Text, out KopfspielEingabe))
             {
-                geradverzahnungBerechnung.Kopfspiel = KopfspielEingabe * geradverzahnungBerechnung.Modul;
+                geradverzahnungBerechnungAussen.Kopfspiel = KopfspielEingabe * geradverzahnungBerechnungAussen.Modul;
             }
             else
             {
@@ -110,49 +112,49 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
 
 
 
-            if (geradverzahnungBerechnung.MachbarkeitderEingabewerte() == 1 && geradverzahnungBerechnung.KontrolleWertebereichEingriffswinkel() == 1 &&
-                geradverzahnungBerechnung.KontrolleWertebereichKopfspiel() == 1)
+            if (geradverzahnungBerechnungAussen.MachbarkeitderEingabewerte() == 1 && geradverzahnungBerechnungAussen.KontrolleWertebereichEingriffswinkel() == 1 &&
+                geradverzahnungBerechnungAussen.KontrolleWertebereichKopfspiel() == 1)
             {
 
-                lbl_Zahnhöhe.Content = geradverzahnungBerechnung.ZahnhöheBerechen();
-                lbl_Zahnfußhöhe.Content = geradverzahnungBerechnung.ZahnfußhöheBerechnen();
-                lbl_Zahnkopfhöhe.Content = geradverzahnungBerechnung.ZahnkopfhöheBerechnen();
-                lbl_Teilung.Content = geradverzahnungBerechnung.TeilungBerechnen();
-                lbl_Fußkreisdurchmesser.Content = geradverzahnungBerechnung.FußkreisdurchmesserBerechnen();
-                lbl_Grundkreisdurchmesser.Content = geradverzahnungBerechnung.GrundkreisdurchmesserBerechnen();
-                lbl_Kopfkreisdurchmesser.Content = geradverzahnungBerechnung.KopfkreisdurchmesserBerechnen();
-                lbl_Zahnfußfestigkeit.Content = geradverzahnungBerechnung.ZahnfußfestigkeitBerechnen();
-                lbl_Zahnflankenfestigkeit.Content = geradverzahnungBerechnung.ZahnflankenfestigkeitBerechnen();
-                lbl_Volumen.Content = geradverzahnungBerechnung.VolumenBerechnen();
+                lbl_Zahnhöhe.Content = geradverzahnungBerechnungAussen.ZahnhöheBerechen();
+                lbl_Zahnfußhöhe.Content = geradverzahnungBerechnungAussen.ZahnfußhöheBerechnen();
+                lbl_Zahnkopfhöhe.Content = geradverzahnungBerechnungAussen.ZahnkopfhöheBerechnen();
+                lbl_Teilung.Content = geradverzahnungBerechnungAussen.TeilungBerechnen();
+                lbl_Fußkreisdurchmesser.Content = geradverzahnungBerechnungAussen.FußkreisdurchmesserBerechnen();
+                lbl_Grundkreisdurchmesser.Content = geradverzahnungBerechnungAussen.GrundkreisdurchmesserBerechnen();
+                lbl_Kopfkreisdurchmesser.Content = geradverzahnungBerechnungAussen.KopfkreisdurchmesserBerechnen();
+                lbl_Zahnfußfestigkeit.Content = geradverzahnungBerechnungAussen.ZahnfußfestigkeitBerechnen();
+                lbl_Zahnflankenfestigkeit.Content = geradverzahnungBerechnungAussen.ZahnflankenfestigkeitBerechnen();
+                lbl_Volumen.Content = geradverzahnungBerechnungAussen.VolumenBerechnen();
 
 
 
                 switch (cb_Berechnen.SelectedIndex)
                 {
                     case 1:
-                        lbl_Preis.Content = geradverzahnungBerechnung.PreisGeradverzahnungBerechnen34Cr4();
-                        lbl_Gewicht.Content = geradverzahnungBerechnung.Gewicht.ToString("0.000");
+                        lbl_Preis.Content = geradverzahnungBerechnungAussen.PreisGeradverzahnungBerechnen34Cr4();
+                        lbl_Gewicht.Content = geradverzahnungBerechnungAussen.Gewicht.ToString("0.000");
                         break;
 
                     case 2:
-                        lbl_Preis.Content = geradverzahnungBerechnung.PreisGeradverzahnungBerechnen20MnCr5();
-                        lbl_Gewicht.Content = geradverzahnungBerechnung.Gewicht.ToString("0.000");
+                        lbl_Preis.Content = geradverzahnungBerechnungAussen.PreisGeradverzahnungBerechnen20MnCr5();
+                        lbl_Gewicht.Content = geradverzahnungBerechnungAussen.Gewicht.ToString("0.000");
                         break;
 
                     case 3:
-                        lbl_Preis.Content = geradverzahnungBerechnung.PreisGeradverzahnungBerechnen46Cr2();
-                        lbl_Gewicht.Content = geradverzahnungBerechnung.Gewicht.ToString("0.000");
+                        lbl_Preis.Content = geradverzahnungBerechnungAussen.PreisGeradverzahnungBerechnen46Cr2();
+                        lbl_Gewicht.Content = geradverzahnungBerechnungAussen.Gewicht.ToString("0.000");
                         break;
 
                     case 4:
-                        lbl_Preis.Content = geradverzahnungBerechnung.PreisGeradverzahnungBerechnen34CrMo4();
-                        lbl_Gewicht.Content = geradverzahnungBerechnung.Gewicht.ToString("0.000");
+                        lbl_Preis.Content = geradverzahnungBerechnungAussen.PreisGeradverzahnungBerechnen34CrMo4();
+                        lbl_Gewicht.Content = geradverzahnungBerechnungAussen.Gewicht.ToString("0.000");
                         break;
                 }
 
 
 
-                geradverzahnungBerechnung.auftraggeber = tb_Auftraggeber.Text;
+                geradverzahnungBerechnungAussen.auftraggeber = tb_Auftraggeber.Text;
 
                 Grd_Ergebnisse.Visibility = Visibility.Visible;
 
@@ -167,12 +169,57 @@ namespace Zahnrad_Designer.Stirnräder.Geradverzahnung_Aussen
 
         private void Btn_Drucken_Click(object sender, RoutedEventArgs e)
         {
+           
 
         }
 
         private void btn_Zeichen_Click(object sender, RoutedEventArgs e)
         {
+            Catia_API catia_API = new Catia_API();
 
+            if (catia_API.CatiaLaeuft())
+            {
+
+
+
+                catia_API.ErzeugePart();
+
+                catia_API.ErzeugeSkizze();
+
+                catia_API.StirnradGeradverzahnungZahn(geradverzahnungBerechnungAussen);
+
+                catia_API.spiegeln();
+
+                catia_API.StirnradGeradverzahnungKreismuster1(geradverzahnungBerechnungAussen);
+
+                catia_API.VerbindungKreismuster();
+
+                catia_API.BlockErzeugen(geradverzahnungBerechnungAussen);
+
+
+
+
+            }
+
+
+            else
+            {
+                MessageBox.Show("Catia läuft zum jetzigen Zeitpunkt nicht !");
+
+                //zeichnen.StirnradGeradverzahnungKreismuster(geradverzahnungBerechnung);
+
+
+
+                if (MessageBox.Show("Soll Catia gestartet werden ?", "Catia", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    //Starten der Catia App 
+                    string Programmname = "CNEXT.exe";
+                    Process.Start(Programmname);
+                }
+
+
+
+            }
         }
     }
 }

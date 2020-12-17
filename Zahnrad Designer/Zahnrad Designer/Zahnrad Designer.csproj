@@ -82,7 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Stirnräder\Catia API.cs" />
+    <Compile Include="Stirnräder\Geradverzahnung Aussen\Catia_API.cs" />
     <Compile Include="Stirnräder\Geradverzahnung Aussen\Geradverzahnung_Aussen.xaml.cs">
       <DependentUpon>Geradverzahnung_Aussen.xaml</DependentUpon>
     </Compile>
