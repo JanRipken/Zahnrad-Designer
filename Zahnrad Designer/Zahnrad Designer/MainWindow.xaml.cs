@@ -44,7 +44,7 @@ namespace Zahnrad_Designer
             this.Close();
         }
          
-
+        //Button Start
         private void btn_Start_Click(object sender, RoutedEventArgs e)
         {
             Zahnrad_Auswahl Auswahl = new Zahnrad_Auswahl();
