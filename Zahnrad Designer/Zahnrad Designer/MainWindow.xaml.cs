@@ -43,6 +43,7 @@ namespace Zahnrad_Designer
             
             this.Close();
         }
+         
 
         private void btn_Start_Click(object sender, RoutedEventArgs e)
         {
